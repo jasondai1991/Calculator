@@ -19,9 +19,13 @@ public class InputValidatorTest {
         assertFalse(InputValidator.validate(LeftMore));
     }
 
-
-
-
+    @Test
+    public void expressionContainsCharsOtherThanParenthesisNumAndOperatorIsNotValid(){
+        String express = "(1+2*m+3)*5";
+        String express2 = "(2+3'5*4)";
+        assertFalse(InputValidator.validate(express));
+        assertFalse(InputValidator.validate(express2));
+    }
 
 
 

@@ -3,6 +3,8 @@ import java.util.*;
 
 public class InputValidator {
     private static String Operators = "+-*/";
+    private static String validChars = "+-*/()1234567890.";
+
 
     public static boolean validate(String input) {
         input = input.trim();
@@ -11,6 +13,7 @@ public class InputValidator {
         Stack<Character> parentesis = new Stack<Character>();
         for (int i = 0; i < input.length(); i++) {
             char cur = input.charAt(i);
+            if(validChars.indexOf(cur)==-1) return false;
             if (cur == '(') {
                 parentesis.push(cur);
                 continue;
