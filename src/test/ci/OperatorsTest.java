@@ -44,6 +44,23 @@ public class OperatorsTest {
         assertEquals(c,Operators.minus(a,b),delta);
     }
 
+    //Test Multiply
+    @Test
+    public void zeroMultiplyByAnyIsZero(){
+        double a=0;
+        double b = 1000000;
+        assertEquals(0,Operators.multiply(a,b),delta);
+    }
+
+    @Test
+    public void testRegularMultiplyOperator(){
+        double a = 10;
+        double b = 2.33;
+        assertEquals(23.3,Operators.multiply(a,b),delta);
+    }
+
+    
+
 
 
 }
