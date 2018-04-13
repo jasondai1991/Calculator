@@ -11,4 +11,18 @@ public class InputValidatorTest {
         assertFalse(InputValidator.validate(input));
     }
 
+    @Test
+    public void diffrentNumOfLeftAndRightParenthesisIsNotValid(){
+        String RightMore = "(1+2)*3)";
+        String LeftMore = "(((1+2*3)";
+        assertFalse(InputValidator.validate(RightMore));
+        assertFalse(InputValidator.validate(LeftMore));
+    }
+
+
+
+
+
+
+
 }
