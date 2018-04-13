@@ -11,12 +11,7 @@ public class CalculatorTest {
 
     private Calculator interestCalculator;
 
-    @Test
-    public void emptyInputIsInvalid(){
-        Calculator cl = new Calculator();
-        String input ="";
-        assertFalse(cl.validateInput(input));
-    }
+
 
 
 }
