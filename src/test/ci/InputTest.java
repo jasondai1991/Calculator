@@ -25,6 +25,16 @@ public class InputTest {
         assertFalse(Input.validate(twoOperatorsTogetherInput));
     }
 
+    @Test
+    public void aRegularMathExpressionIsValid(){
+        String input1 = "1+2*3";
+        String input2 = "(1+2)*3*5/3";
+        String input3 = "((1*2)/3+5)*10";
+        assertTrue(Input.validate(input1));
+        assertTrue(Input.validate(input2));
+        assertTrue(Input.validate(input3));
+    }
+
 
 
 
