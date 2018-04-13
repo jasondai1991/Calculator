@@ -19,6 +19,12 @@ public class InputTest {
         assertFalse(Input.validate(LeftMore));
     }
 
+    @Test
+    public void twoOperatorsTogetherIsNotValid(){
+        String twoOperatorsTogetherInput = "(1+2*3/*4)*5";
+        assertFalse(Input.validate(twoOperatorsTogetherInput));
+    }
+
 
 
 
