@@ -14,11 +14,8 @@ public class Operators {
         return a*b;
     }
 
-    public static double divide(double a, double b) throws CalculatorException{
-        try{
-            return a/b;
-        }catch(ArithmeticException e){
-            throw new CalculatorException(e.getMessage());
-        }
+    public static double divide(double a, double b){
+        if(b==0) throw new ArithmeticException();
+        return a/b;
     }
 }
