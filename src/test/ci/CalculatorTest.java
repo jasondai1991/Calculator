@@ -5,14 +5,17 @@ import org.junit.Test;
 //import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import java.util.*;
 
 public class CalculatorTest {
 
     private Calculator interestCalculator;
 
     @Test
-    public void emptyTest(){
-        assertEquals("1","1");
+    public void emptyInputIsInvalid(){
+        Calculator cl = new Calculator();
+        String input ="";
+        assertFalse(cl.validateInput(input));
     }
 
 
