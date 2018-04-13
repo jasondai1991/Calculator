@@ -12,10 +12,10 @@ public class InputTest {
         assertFalse(Input.validate(input));
     }
 
-    @Test
+    /*@Test
     public void LeftAndRightParenthesesShouldBeSameNumber(){
 
-    }
+    }*/
 
 
 
