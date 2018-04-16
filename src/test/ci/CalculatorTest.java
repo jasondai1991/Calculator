@@ -70,4 +70,29 @@ public class CalculatorTest {
         assertEquals(expectedRes,Res,delta);
     }
 
+    //Test Multiply
+    @Test
+    public void oneNumMultiplyZeroShouldBeZero(){
+        String exp = "5.3*0";
+        double expectedRes = 0;
+        double Res = Double.MAX_VALUE;
+        try{
+            Res = Calculator.calculate(exp);
+        }catch(Exception e){
+        }
+        assertEquals(expectedRes,Res,delta);
+    }
+
+    @Test
+    public void twoMultiplyByFiveShouldBeTen(){
+        String exp = "2*5";
+        double expectedRes = 10;
+        double Res = Double.MAX_VALUE;
+        try{
+            Res = Calculator.calculate(exp);
+        }catch(Exception e){
+        }
+        assertEquals(expectedRes,Res,delta);
+    }
+
 }
