@@ -61,4 +61,31 @@ public class OperatorTest {
         assertEquals(10, Operator.operation('*',a,b),delta);
     }
 
+    //Test Divide
+    @Test
+    public void zeroAsDenominatorThrowsException(){
+        double a=5.3;
+        double b=0;
+        boolean zeroDenominatorNotAllowed=false;
+        try{
+            Operator.operation('/',a,b);
+        }catch(ArithmeticException e){
+            zeroDenominatorNotAllowed=true;
+        }
+        assertTrue(zeroDenominatorNotAllowed);
+    }
+
+    @Test
+    public void oneNumDividedByItselfIsOne(){
+        double a = 5.3;
+        assertEquals(1, Operator.operation('/',a,a),delta);
+    }
+
+    @Test
+    public void oneDivdedByTwoIsPointFive(){
+        double a=1;
+        double b = 2;
+        assertEquals(0.5, Operator.operation('/',a,b),delta);
+    }
+
 }
