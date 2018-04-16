@@ -10,29 +10,29 @@ public class InputValidatorTest {
     @Test
     public void emptyInputIsNotvalid(){
         String input ="";
-        assertFalse(iv.validate(input));
+        assertFalse(iv.isValid(input));
     }
 
     @Test
     public void diffrentNumOfLeftAndRightParenthesisIsNotValid(){
         String RightMore = "(1+2)*3)";
         String LeftMore = "(((1+2*3)";
-        assertFalse(iv.validate(RightMore));
-        assertFalse(iv.validate(LeftMore));
+        assertFalse(iv.isValid(RightMore));
+        assertFalse(iv.isValid(LeftMore));
     }
 
     @Test
     public void expressionContainsCharsOtherThanParenthesisNumAndOperatorIsNotValid(){
         String express = "(1+2*m+3)*5";
         String express2 = "(2+3'5*4)";
-        assertFalse(iv.validate(express));
-        assertFalse(iv.validate(express2));
+        assertFalse(iv.isValid(express));
+        assertFalse(iv.isValid(express2));
     }
 
     @Test
     public void expressionWithSpacesAreValid(){
         String express = " 1+   3*  (5*6)";
-        assertTrue(iv.validate(express));
+        assertTrue(iv.isValid(express));
     }
 
 
@@ -43,9 +43,9 @@ public class InputValidatorTest {
         String express1 = "(1+2*()+5)*10";
         String express2 = "(*1+2)*5";
         String express3 = "(.1+2)*3";
-        assertFalse(iv.validate(express1));
-        assertFalse(iv.validate(express2));
-        assertFalse(iv.validate(express3));
+        assertFalse(iv.isValid(express1));
+        assertFalse(iv.isValid(express2));
+        assertFalse(iv.isValid(express3));
     }
 
     @Test
@@ -53,9 +53,9 @@ public class InputValidatorTest {
         String express1 = "(1+2*)(+5)*10";
         String express2 = "(*1+2).5";
         String express3 = "(.1+2)3+5";
-        assertFalse(iv.validate(express1));
-        assertFalse(iv.validate(express2));
-        assertFalse(iv.validate(express3));
+        assertFalse(iv.isValid(express1));
+        assertFalse(iv.isValid(express2));
+        assertFalse(iv.isValid(express3));
     }
 
     @Test
@@ -65,11 +65,11 @@ public class InputValidatorTest {
         String express3 = "1+.2";
         String express4 = "1++2";
         String express5 = "1*)";
-        assertTrue(iv.validate(express1));
-        assertTrue(iv.validate(express2));
-        assertFalse(iv.validate(express3));
-        assertFalse(iv.validate(express4));
-        assertFalse(iv.validate(express5));
+        assertTrue(iv.isValid(express1));
+        assertTrue(iv.isValid(express2));
+        assertFalse(iv.isValid(express3));
+        assertFalse(iv.isValid(express4));
+        assertFalse(iv.isValid(express5));
     }
 
     @Test
@@ -80,45 +80,38 @@ public class InputValidatorTest {
         String exp4 = "1..3+4";
         String exp5 = "1.)(*3";
         String exp6 = "3.5.5*6";
-        assertTrue(iv.validate(exp1));
-        assertFalse(iv.validate(exp2));
-        assertFalse(iv.validate(exp3));
-        assertFalse(iv.validate(exp4));
-        assertFalse(iv.validate(exp5));
-        assertFalse(iv.validate(exp6));
+        assertTrue(iv.isValid(exp1));
+        assertFalse(iv.isValid(exp2));
+        assertFalse(iv.isValid(exp3));
+        assertFalse(iv.isValid(exp4));
+        assertFalse(iv.isValid(exp5));
+        assertFalse(iv.isValid(exp6));
     }
 
     @Test
     public void numShouldNotBeFollowedByLeftPar(){
         String exp = "19(2+3)";
-        assertFalse(iv.validate(exp));
+        assertFalse(iv.isValid(exp));
     }
 
+    //Testing expression start rules
     @Test
-    public void expressionShouldStartWithNumOrLeftPar(){
+    public void expressionShouldNotStartWithDot(){
         String exp1 = ".3+3";
-        String exp2 = ")*3(0";
-        String exp3 = "+5*10";
-        assertFalse(iv.validate(exp1));
-        assertFalse(iv.validate(exp2));
-        assertFalse(iv.validate(exp3));
+        assertFalse(iv.isValid(exp1));
     }
 
     @Test
-    public void expressionOnlyEndsWithNumOrRightPar(){
-        String exp1 = "3+3.";
-        String exp2 = "30*5(";
-        String exp3 = "3.3*5+";
-        String exp4 = "33*5()";
-        assertFalse(iv.validate(exp1));
-        assertFalse(iv.validate(exp2));
-        assertFalse(iv.validate(exp3));
-        assertFalse(iv.validate(exp4));
+    public void expressionShouldNotStartWithRightPar(){
+        String exp = ")*3(0";
+        assertFalse(iv.isValid(exp));
     }
 
     @Test
-    public void aRegularOneShouldBeValid(){
-        String express = "((3*1.5)/(10-3*(3.3-4.4*5)))*10-5.32";
-        assertTrue(iv.validate(express));
+    public void expressionShouldNotStartWithOperator(){
+        String exp = "+5*10";
+        assertFalse(iv.isValid(exp));
     }
+
+
 }
