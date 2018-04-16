@@ -31,7 +31,7 @@ public class Calculator {
                 // do the math when we encounter a ')' until '('
                 while (ops.peek() != '(') {
                     try{
-                        vals.push(Operator.operation(ops.pop(), vals.pop(), vals.pop()));
+                        vals.push(operation(ops.pop(), vals.pop(), vals.pop()));
                     }catch (ArithmeticException e){
                         throw new InvalidExpressionException("Denominator is Zero");
                     }
@@ -40,7 +40,7 @@ public class Calculator {
             } else if (operators.indexOf(curChar)!=-1) {
                 while (!ops.isEmpty() && precedence(curChar, ops.peek())){
                     try{
-                        vals.push(Operator.operation(ops.pop(), vals.pop(), vals.pop()));
+                        vals.push(operation(ops.pop(), vals.pop(), vals.pop()));
                     }catch (ArithmeticException e){
                         throw new InvalidExpressionException("Denominator is Zero");
                     }
@@ -50,12 +50,24 @@ public class Calculator {
         }
         while (!ops.isEmpty()) {
             try{
-                vals.push(Operator.operation(ops.pop(), vals.pop(), vals.pop()));
+                vals.push(operation(ops.pop(), vals.pop(), vals.pop()));
             }catch (ArithmeticException e){
                 throw new InvalidExpressionException("Denominator is Zero");
             }
         }
         return vals.pop();
+    }
+
+    private static double operation(char op, double a, double b) {
+        switch (op) {
+            case '+': return a + b;
+            case '-': return b-a;
+            case '*': return a * b;
+            case '/':
+                if(a==0) throw new ArithmeticException();
+                return b/a;
+        }
+        return 0;
     }
 
 

@@ -8,10 +8,11 @@ public class CalculatorTest {
 
     double delta = 0.00000001;
 
+    //Test Add
     @Test
-    public void testSimpleAdd(){
-        String exp="1+2+3";
-        double expectedRes = 6;
+    public void oneNumAddZeroEqualsItself(){
+        String exp="1+0";
+        double expectedRes = 1;
         double Res = Double.MAX_VALUE;
         try{
             Res = Calculator.calculate(exp);
@@ -21,9 +22,9 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testSimpleWithDot(){
-        String exp="1+2+3.33+3";
-        double expectedRes = 9.33;
+    public void onePlusTwoPointThreeShouldBeThreePointThree(){
+        String exp="1+2.3";
+        double expectedRes = 3.3;
         double Res = Double.MAX_VALUE;
         try{
             Res = Calculator.calculate(exp);
@@ -31,4 +32,6 @@ public class CalculatorTest {
         }
         assertEquals(expectedRes,Res,delta);
     }
+    
+
 }
