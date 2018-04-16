@@ -8,8 +8,6 @@ public class InputValidator {
 
 
     public static boolean isValid(String input) {
-        String[] segs = input.split("\\s+");
-        input = String.join("",segs);
         if (input.equals("")) return false;
         Stack<Character> parentesis = new Stack<Character>();
         boolean prevDot =false;
