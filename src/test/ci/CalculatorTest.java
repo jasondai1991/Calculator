@@ -32,6 +32,45 @@ public class CalculatorTest {
         }
         assertEquals(expectedRes,Res,delta);
     }
+
+    //Test Minus
+    @Test
+    public void oneNumMinusZeroEqualsItself(){
+        String exp = "5.3-0";
+        double expectedRes = 5.3;
+        double Res = Double.MAX_VALUE;
+        try{
+            Res = Calculator.calculate(exp);
+        }catch(Exception e){
+        }
+        assertEquals(expectedRes,Res,delta);
+    }
+
+    @Test
+    public void oneNumItselfEqualsZero(){
+        String exp = "5.3-5.3";
+        double expectedRes = 0;
+        double Res = Double.MAX_VALUE;
+        try{
+            Res = Calculator.calculate(exp);
+        }catch(Exception e){
+        }
+        assertEquals(expectedRes,Res,delta);
+    }
+
+    @Test
+    public void oneMinusTwoShouldBeNegOne(){
+        String exp = "1-2";
+        double expectedRes = -1;
+        double Res = Double.MAX_VALUE;
+        try{
+            Res = Calculator.calculate(exp);
+        }catch(Exception e){
+        }
+        assertEquals(expectedRes,Res,delta);
+    }
+
     
+
 
 }
