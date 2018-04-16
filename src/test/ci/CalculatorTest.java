@@ -133,4 +133,40 @@ public class CalculatorTest {
         assertEquals(expectedRes,Res,delta);
     }
 
+    @Test
+    public void testWithParens(){
+        String exp = "(3+5)*12";
+        double expectedRes = 96;
+        double Res = Double.MAX_VALUE;
+        try{
+            Res = Calculator.calculate(exp);
+        }catch(Exception e){
+        }
+        assertEquals(expectedRes,Res,delta);
+    }
+
+    @Test
+    public void testWithMultiParens(){
+        String exp = "((3+5)*12+4)/10*1.5+5.34";
+        double expectedRes = 20.34;
+        double Res = Double.MAX_VALUE;
+        try{
+            Res = Calculator.calculate(exp);
+        }catch(Exception e){
+        }
+        assertEquals(expectedRes,Res,delta);
+    }
+
+    @Test
+    public void testComplicatedExpression(){
+        String exp = "((3*1.5)/(10-3*(3.3-4.4*5)))*10-5.32";
+        double expectedRes = -4.63921331316;
+        double Res = Double.MAX_VALUE;
+        try{
+            Res = Calculator.calculate(exp);
+        }catch(Exception e){
+        }
+        assertEquals(expectedRes,Res,delta);
+    }
+
 }
