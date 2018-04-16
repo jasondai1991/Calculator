@@ -22,31 +22,4 @@ public class OperatorTest {
         assertEquals(3.3, Operator.operation('+',a,b),delta);
     }
 
-    //Test Minus
-    @Test
-    public void oneNumMinusZeroEqualsItself(){
-        double a=2.5;
-        double b = 0;
-        assertEquals(2.5, Operator.operation('-',a,b),delta);
-    }
-
-    @Test
-    public void oneNumMinusItselfEqualsZero(){
-        double a = 2.5;
-        double b = 2.5;
-        assertEquals(0, Operator.operation('-',a,b),delta);
-    }
-
-    @Test
-    public void oneMinusTwoShouldBeNegOne(){
-        double a=1;
-        double b=2;
-        double c=-1;
-        assertEquals(c, Operator.operation('-',a,b),delta);
-    }
-
-    
-
-
-
 }
