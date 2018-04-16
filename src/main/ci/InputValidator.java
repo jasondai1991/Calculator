@@ -7,7 +7,7 @@ public class InputValidator {
     private static String validChars = "+-*/()1234567890.";
 
 
-    public boolean isValid(String input) {
+    public static boolean isValid(String input) {
         String[] segs = input.split("\\s+");
         input = String.join("",segs);
         if (input.equals("")) return false;
@@ -50,11 +50,11 @@ public class InputValidator {
         else return false;
     }
 
-    private boolean validateForLeftParOrOps(char c){
+    private static boolean validateForLeftParOrOps(char c){
         return !(nums.indexOf(c)==-1 && c!='(');
     }
 
-    private boolean validateForRightPar(char c){
+    private static boolean validateForRightPar(char c){
         return !(nums.indexOf(c)!=-1 || c=='.' || c=='(');
     }
 }
