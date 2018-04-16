@@ -1,1 +1,1 @@
-This calculator supports (,),+,-,*,/ for non-neg values.
+This calculator supports (,),+,-,*,/ for non-neg double numbers.
