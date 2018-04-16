@@ -16,7 +16,7 @@ public class OperatorsTest {
     }
 
     @Test
-    public void testRegularAddOperator(){
+    public void onePlusTwoPointThreeShouldBeThreePointThree(){
         double a = 1;
         double b =2.3;
         assertEquals(3.3,Operators.add(a,b),delta);
@@ -38,12 +38,29 @@ public class OperatorsTest {
     }
 
     @Test
-    public void testRegularMinusOperator(){
-        double a=2.3;
-        double b=2.6;
-        double c=-0.3;
+    public void oneMinusTwoShouldBeNegOne(){
+        double a=1;
+        double b=2;
+        double c=-1;
         assertEquals(c,Operators.minus(a,b),delta);
     }
+
+    //Test Multiply
+    @Test
+    public void zeroMultiplyByAnyIsZero(){
+        double a=0;
+        double b = 1000000;
+        assertEquals(0,Operators.multiply(a,b),delta);
+    }
+
+    @Test
+    public void twoMultiplyFiveShouldBeTen(){
+        double a = 2;
+        double b = 5;
+        assertEquals(10,Operators.multiply(a,b),delta);
+    }
+
+
 
 
 }
