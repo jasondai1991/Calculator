@@ -113,5 +113,34 @@ public class InputValidatorTest {
         assertFalse(iv.isValid(exp));
     }
 
+    @Test
+    public void expressionCanStartWithNum(){
+        String exp = "5*10";
+        assertTrue(iv.isValid(exp));
+    }
 
+    @Test
+    public void expressionCanStartWithLeftPar(){
+        String exp = "(5*10)*(3+5)";
+        assertTrue(iv.isValid(exp));
+    }
+
+    //Testing expression end rules
+    @Test
+    public void expressionShouldNotEndWithLeftPar(){
+        String exp = "30*(5+3/6.2)+5(";
+        assertFalse(iv.isValid(exp));
+    }
+
+    @Test
+    public void expressionShouldNotEndWithOperator(){
+        String exp = "30+5*(15+16)-";
+        assertFalse(iv.isValid(exp));
+    }
+
+    @Test
+    public void expressionShouldNotEndWithDot(){
+        String exp = "30+5*(15+16).";
+        assertFalse(iv.isValid(exp));
+    }
 }
