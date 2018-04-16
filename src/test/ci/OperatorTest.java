@@ -46,4 +46,19 @@ public class OperatorTest {
         assertEquals(c, Operator.operation('-',a,b),delta);
     }
 
+    //Test Multiply
+    @Test
+    public void zeroMultiplyByAnyIsZero(){
+        double a=0;
+        double b = 1000000;
+        assertEquals(0, Operator.operation('*',a,b),delta);
+    }
+
+    @Test
+    public void twoMultiplyFiveShouldBeTen(){
+        double a = 2;
+        double b = 5;
+        assertEquals(10, Operator.operation('*',a,b),delta);
+    }
+
 }
