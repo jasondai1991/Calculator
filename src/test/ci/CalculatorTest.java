@@ -103,7 +103,7 @@ public class CalculatorTest {
         try{
            Calculator.calculate(exp);
            System.out.println("haha");
-        }catch(InvalidExpressionException e){
+        }catch(CalculatorException e){
            if(e.getMessage().equals("Denominator is Zero")) zeroDenominatorNotAllowed=true;
         }
         assertTrue(zeroDenominatorNotAllowed);

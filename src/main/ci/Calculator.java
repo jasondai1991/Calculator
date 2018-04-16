@@ -5,11 +5,11 @@ import java.util.*;
 public class Calculator {
 
 
-    public static Double calculate(String input) throws InvalidExpressionException {
+    public static Double calculate(String input) throws CalculatorException {
         String[] segs = input.split("\\s+");
         input = String.join("",segs);
         if (!InputValidator.isValid(input)) {
-            throw new InvalidExpressionException("InvalidInputExpression");
+            throw new CalculatorException("InvalidInputExpression");
         }
         String operators = "+-/*";
         Stack<Character> ops = new Stack<Character>();// the stack that stores operators (including parentheses)
@@ -33,7 +33,7 @@ public class Calculator {
                     try{
                         vals.push(operation(ops.pop(), vals.pop(), vals.pop()));
                     }catch (ArithmeticException e){
-                        throw new InvalidExpressionException("Denominator is Zero");
+                        throw new CalculatorException("Denominator is Zero");
                     }
                 }
                 ops.pop(); // get rid of '(' in the ops stack
@@ -42,7 +42,7 @@ public class Calculator {
                     try{
                         vals.push(operation(ops.pop(), vals.pop(), vals.pop()));
                     }catch (ArithmeticException e){
-                        throw new InvalidExpressionException("Denominator is Zero");
+                        throw new CalculatorException("Denominator is Zero");
                     }
                 }
                 ops.push(curChar);
@@ -52,7 +52,7 @@ public class Calculator {
             try{
                 vals.push(operation(ops.pop(), vals.pop(), vals.pop()));
             }catch (ArithmeticException e){
-                throw new InvalidExpressionException("Denominator is Zero");
+                throw new CalculatorException("Denominator is Zero");
             }
         }
         return vals.pop();
