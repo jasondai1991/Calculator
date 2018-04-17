@@ -1,6 +1,7 @@
 package ci;
 
 import java.util.*;
+import java.io.*;
 
 public class Calculator {
 
@@ -71,11 +72,26 @@ public class Calculator {
     }
 
 
-
     // helper function to check precedence of current operator and the uppermost operator in the ops stack
     private static boolean precedence(char op1, char op2) {
         if (op2 == '(') return false;
         if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')) return false;
         return true;
+    }
+
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        if(input==null || input.equals("")){
+            System.out.print("Please enter the arithmetic expression");
+        }
+        String output="";
+        try{
+            output = Double.toString(Calculator.calculate(input));
+            System.out.println("Answer: "+input+"="+output);
+        }catch(CalculatorException e){
+            System.out.println("ERROR");
+            System.out.println(e.getMessage());
+        }
     }
 }
